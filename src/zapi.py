@@ -8,14 +8,13 @@ class Zapi:
         self.ZAPI_TOKEN: str = os.getenv("ZAPI_TOKEN")
         self.ZAPI_CLIENT_TOKEN: str = os.getenv("ZAPI_CLIENT_TOKEN")
         # Estabelece conexão com Z-API
-        self.url = f"https://api.z-api.io/instances/{self.ZAPI_ID}/token/{self.ZAPI_TOKEN}/send-text"
-        self.headers = {"Client-Token": self.ZAPI_CLIENT_TOKEN,
+        self.url: str = f"https://api.z-api.io/instances/{self.ZAPI_ID}/token/{self.ZAPI_TOKEN}/send-text"
+        self.headers: dict = {"Client-Token": self.ZAPI_CLIENT_TOKEN,
                         "Content-Type": "application/json"}
 
-    def send(self, message, phone):
+    def send(self, message, phone) -> None:
         # Envia a mensagem
-        payload = {"phone": phone,
+        payload: dict = {"phone": phone,
                    "message": message}
-        response = requests.post(self.url, json=payload, headers=self.headers)
-        return response
+        requests.post(self.url, json=payload, headers=self.headers)
 
