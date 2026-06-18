@@ -9,7 +9,9 @@ class Supabase:
         load_dotenv()
         self.SUPABASE_URL: str = os.getenv("SUPABASE_URL")
         self.SUPABASE_KEY: str = os.getenv("SUPABASE_KEY")
-        self.client: Client = create_client(self.SUPABASE_URL, self.SUPABASE_KEY)
+        self.supabase: Client = create_client(self.SUPABASE_URL, self.SUPABASE_KEY)
 
     def read(self):
-        return
+        # Faz a leitura das colunas do Banco de Dados e converte formato Json para dicionário Python
+        data = self.supabase.table("contatos").select("nome, telefone").execute().data
+        return data
