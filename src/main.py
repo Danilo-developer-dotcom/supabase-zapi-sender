@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 from src.db import Supabase
 from src.zapi import Zapi
 
@@ -7,8 +10,6 @@ zapi = Zapi()
 contacts_list = supabase.read()
 
 for contact in contacts_list:
-    name = contact["name"]
-    phone = contact["phone"]
-    message = f"Olá, {name} tudo bem com você?"
-    zapi.send(message, phone)
+    message = f"Olá, {contact["name"]} tudo bem com você?"
+    zapi.send(message, contact["phone"])
 
