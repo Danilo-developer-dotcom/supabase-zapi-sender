@@ -8,6 +8,7 @@ mensagens personalizadas via Z-API (Whatsapp)
  - Supabase (Banco de Dados)
  - Z-API (Envio de mensagem por Whatsapp)
 ---
+## Setup da tabela no Supabase
 No Supabase, crie a seguinte tabela em seu Banco de Dados:
 
 ````commandline
@@ -19,21 +20,6 @@ create table contacts(
 )
 ````
 O campo `phone` deve conter o DDI + DDD + número, sem símbolos ou espaçamentos. Exemplo: `5511999999999`
-
----
-## Variáveis de Ambiente
-
-Copie o arquivo como no exemplo a seguir e preencha com suas credenciais
-```bash
-cp .env.example .env
-```
-
----
-- `SUPABASE_URL`: Painel do Supabase → Project Settings → API
-- `SUPABASE_KEY`: Painel do Supabase → Project Settings → API
-- `ZAPI_ID`: Painel da Z-API → sua instância
-- `ZAPI_TOKEN`: Painel da Z-API → sua instância
-- `ZAPI_CLIENT_TOKEN`: Painel da Z-API → Security
 
 ---
 
@@ -51,7 +37,22 @@ cd supabase-zapi-sender
 pip install -r requirements.txt
 ```
 
-- 3º Configure o `.env` conforme instruções acima.
+- 3º Configure o `.env` conforme instruções a seguir:
+
+Copie o arquivo como no exemplo e preencha com suas credenciais
+```bash
+cp .env.example .env
+```
+
+**onde encontrar cada variável:**
+---
+- `SUPABASE_URL`: Painel do Supabase → Project Settings → API
+- `SUPABASE_KEY`: Painel do Supabase → Project Settings → API
+- `ZAPI_ID`: Painel da Z-API → sua instância
+- `ZAPI_TOKEN`: Painel da Z-API → sua instância
+- `ZAPI_CLIENT_TOKEN`: Painel da Z-API → Security
+
+---
 
 - 4º Execute:
 ```bash
