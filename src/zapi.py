@@ -12,6 +12,10 @@ class Zapi:
         self.headers = {"Client-Token": self.ZAPI_CLIENT_TOKEN,
                         "Content-Type": "application/json"}
 
-    def send(self):
-        return
+    def send(self, message, phone):
+        # Envia a mensagem
+        payload = {"phone": phone,
+                   "message": message}
+        response = requests.post(self.url, json=payload, headers=self.headers)
+        return response
 
