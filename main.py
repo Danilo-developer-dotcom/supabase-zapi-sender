@@ -6,8 +6,7 @@ load_dotenv()
 supabase = Supabase()
 zapi = Zapi()
 
-# lista de contatos em formato de dicionário
-contacts_list = supabase.read()
+contacts_list = supabase.read()  # lista de contatos em formato de dicionário
 
 for contact in contacts_list:
     message = f"Olá, {contact["name"]} tudo bem com você?"
