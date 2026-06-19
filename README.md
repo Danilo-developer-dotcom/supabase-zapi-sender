@@ -2,6 +2,7 @@
 
 Código Python que faz a leitura de contatos do Supabase e envia
 mensagens personalizadas via Z-API (Whatsapp)
+
 ---
 ## Tecnologias utilizadas
  - Python
